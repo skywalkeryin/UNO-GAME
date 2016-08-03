@@ -15,22 +15,39 @@ import java.util.Random;
  */
 public class Players {
     private String name;
-    private LinkedList<UNOCard>hands=new LinkedList<UNOCard>();
+    LinkedList<UNOCard>hands=new LinkedList<UNOCard>();
+    Deck deck=new Deck();
     
     public Players(){
         super();
     }
-    public Players(String name,LinkedList<UNOCard> hands){
+    public Players(String name){
         this.name=name;
-        this.hands=hands;
+    }
+    public LinkedList<UNOCard> getHands(){
+        return hands;
+    } 
+    public void setName(String name){
+        this.name=name;
+    }
+     
+    public LinkedList<UNOCard> addCard(Deck deck){
+        
+       
+      //  Random rand =new Random();
+      //  int n=rand.nextInt();
+        hands.add(deck.takeCard());
+        return hands;
         
     }
-    public LinkedList<UNOCard> addCard(){
-        
-        Deck d=new Deck();
-        Random rand =new Random();
-        int n=rand.nextInt(108);
-        hands.add(d.randomCard());
+
+    public String getName() {
+        return name;
+    }
+    public LinkedList<UNOCard> removeCard(){
+        Random rand=new Random();
+        int n=rand.nextInt(hands.size());
+        hands.remove(n);
         return hands;
     }
     

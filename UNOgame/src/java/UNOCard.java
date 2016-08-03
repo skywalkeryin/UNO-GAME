@@ -51,5 +51,5 @@ public class UNOCard {
 		}
 		public void setCardImg(String cardImg) {
 			this.cardImg = cardImg;
-		}
+		} 
 }
